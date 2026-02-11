@@ -20,7 +20,9 @@ img {
 
 .buttons {
   position: relative;
-  height: 120px;
+  height: 140px;
+  width: 400px;
+  margin: 0 auto;
 }
 
 button {
@@ -34,13 +36,15 @@ button {
 }
 
 #yes {
-  left: 40%;
+  left: 80px;
+  top: 40px;
   background: #ff4d6d;
   color: white;
 }
 
 #no {
-  left: 55%;
+  left: 220px;
+  top: 40px
   background: #666;
   color: white;
 }
