@@ -4,9 +4,6 @@
 const yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
 
-// ----- No button: run away -----
-const noBtn = document.getElementById("no");
-
 document.addEventListener("mousemove", (e) => {
   const rect = noBtn.getBoundingClientRect();
 
