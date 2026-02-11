@@ -1,0 +1,46 @@
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  background: #ffe6eb;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+}
+
+img {
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  position: relative;
+  height: 120px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: absolute;
+  transition: transform 0.15s ease;
+}
+
+#yes {
+  left: 40%;
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  left: 55%;
+  background: #666;
+  color: white;
+}
