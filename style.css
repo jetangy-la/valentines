@@ -19,10 +19,11 @@ img {
 }
 
 .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
   position: relative;
-  height: 140px;
-  width: 400px;
-  margin: 0 auto;
 }
 
 button {
@@ -31,20 +32,15 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  position: absolute;
   transition: transform 0.15s ease;
 }
 
 #yes {
-  left: 0px;
-  top: 40px;
   background: #ff4d6d;
   color: white;
 }
 
 #no {
-  left: 300px;
-  top: 40px
   background: #666;
   color: white;
 }
