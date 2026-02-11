@@ -5,14 +5,25 @@ const yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
 
 // ----- No button: run away -----
-noBtn.addEventListener("mouseenter", () => {
-  const maxX = 300;
-  const maxY = 120;
+const noBtn = document.getElementById("no");
 
-  const x = Math.random() * maxX - maxX / 2;
-  const y = Math.random() * maxY - maxY / 2;
+document.addEventListener("mousemove", (e) => {
+  const rect = noBtn.getBoundingClientRect();
 
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  const btnX = rect.left + rect.width / 2;
+  const btnY = rect.top + rect.height / 2;
+
+  const dx = e.clientX - btnX;
+  const dy = e.clientY - btnY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  // Trigger BEFORE the cursor reaches the button
+  if (distance < 120) {
+    const moveX = -dx * 0.6;
+    const moveY = -dy * 0.6;
+
+    noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  }
 });
 
 // ----- Yes button: grow when close -----
