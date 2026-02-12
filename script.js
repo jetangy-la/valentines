@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const areaWidth = buttonArea.clientWidth;
     const areaHeight = buttonArea.clientHeight;
 
-    // YES stays in the flex flow, just nudge it left a bit
-    yesBtn.style.marginRight = "80px";
+    // YES stays in flex; just nudge left so it doesn't look lonely
+    yesBtn.style.marginRight = "60px";
 
-    // NO is absolute; place it on the right, vertically centered
+    // NO is absolute; place on the right, vertically centered
     const centerY = (areaHeight - noBtn.offsetHeight) / 2;
     noBtn.style.left = `${areaWidth - noBtn.offsetWidth - 20}px`;
     noBtn.style.top = `${centerY}px`;
@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const distance = Math.hypot(e.clientX - btnX, e.clientY - btnY);
     const scale = Math.max(1, 2 - distance / 200);
-
     yesBtn.style.transform = `scale(${scale})`;
   }
 
+  // NO runs away, but never overlaps YES
   function moveNoButton(e) {
     const noRect = noBtn.getBoundingClientRect();
     const noCenterX = noRect.left + noRect.width / 2;
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const areaRect = buttonArea.getBoundingClientRect();
     const yesRect = yesBtn.getBoundingClientRect();
 
-    // YES rect relative to the buttonArea
+    // YES rect in coordinates relative to buttonArea
     const yes = {
       left: yesRect.left - areaRect.left,
       top: yesRect.top - areaRect.top,
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const padding = 8;
-    const buffer = 12;
+    const buffer = 12; // extra space around YES
     const maxX = buttonArea.clientWidth - noBtn.offsetWidth - padding;
     const maxY = buttonArea.clientHeight - noBtn.offsetHeight - padding;
 
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Fallback: a corner away from YES
+    // Fallback: shove it to a corner away from YES
     const placeLeft = yes.left < buttonArea.clientWidth / 2 ? maxX : padding;
     const placeTop = yes.top < buttonArea.clientHeight / 2 ? maxY : padding;
     noBtn.style.left = `${placeLeft}px`;
@@ -107,4 +107,3 @@ document.addEventListener("DOMContentLoaded", () => {
     growYesButton(e);
   });
 });
-
