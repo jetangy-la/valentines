@@ -3,21 +3,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.getElementById("no");
 
   // ---- NO BUTTON: RUN AWAY ----
-  document.addEventListener("mousemove", (e) => {
-    const rect = noBtn.getBoundingClientRect();
-    const btnX = rect.left + rect.width / 2;
-    const btnY = rect.top + rect.height / 2;
+let posX = 0;
+let posY = 0;
 
-    const dx = e.clientX - btnX;
-    const dy = e.clientY - btnY;
-    const distance = Math.sqrt(dx * dx + dy * dy);
+document.addEventListener("mousemove", (e) => {
+  const rect = noBtn.getBoundingClientRect();
+  const btnX = rect.left + rect.width / 2;
+  const btnY = rect.top + rect.height / 2;
 
-    if (distance < 120) {
-      const moveX = -dx * 0.6;
-      const moveY = -dy * 0.6;
-      noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    }
-  });
+  const dx = e.clientX - btnX;
+  const dy = e.clientY - btnY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  if (distance < 150) {
+    const angle = Math.atan2(dy, dx);
+
+    posX -= Math.cos(angle) * 30;
+    posY -= Math.sin(angle) * 30;
+
+    noBtn.style.transform = `translate(${posX}px, ${posY}px)`;
+  }
+});
 
   // ---- YES BUTTON: GROW ----
   document.addEventListener("mousemove", (e) => {
