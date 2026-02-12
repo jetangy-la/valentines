@@ -24,6 +24,8 @@ img {
   gap: 40px;
   margin-top: 30px;
   position: relative;
+  width: 320px;        /* add this */
+  align-items: center;
   height: 120px;
 }
 
