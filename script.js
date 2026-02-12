@@ -3,6 +3,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.getElementById("no");
   const buttonArea = document.querySelector(".buttons");
 
+  if (!yesBtn || !noBtn || !buttonArea) return;
+
+  function setStartingPositions() {
+    const areaWidth = buttonArea.clientWidth;
+    const areaHeight = buttonArea.clientHeight;
+
+    const centerY = (areaHeight - noBtn.offsetHeight) / 2;
+
+    // Slight visual shift left for YES
+    yesBtn.style.marginRight = "60px";
+
+    // Position NO on the right side
+    noBtn.style.left = `${areaWidth - noBtn.offsetWidth - 20}px`;
+    noBtn.style.top = `${centerY}px`;
+  }
+
+  // 🔥 CALL IT
+  setStartingPositions();
+
+  // Optional: reposition if window resizes
+  window.addEventListe
+
   // Safety checks
   if (!yesBtn || !noBtn || !buttonArea) return;
 
