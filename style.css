@@ -33,16 +33,19 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.15s ease;
-  position: relative; /* IMPORTANT */
+  transition: all 0.15s ease;
 }
 
+/* Keep YES normal in flex layout */
 #yes {
   background: #ff4d6d;
   color: white;
 }
 
+/* Make NO absolute so it can run */
 #no {
   background: #666;
   color: white;
+  position: absolute;
 }
+
